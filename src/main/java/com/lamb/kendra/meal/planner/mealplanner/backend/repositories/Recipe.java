@@ -1,10 +1,9 @@
-package com.lamb.kendra.meal.planner.mealplanner.repositories;
+package com.lamb.kendra.meal.planner.mealplanner.backend.repositories;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity

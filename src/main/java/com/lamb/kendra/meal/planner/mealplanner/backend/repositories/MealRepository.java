@@ -1,4 +1,4 @@
-package com.lamb.kendra.meal.planner.mealplanner.repositories;
+package com.lamb.kendra.meal.planner.mealplanner.backend.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,9 +1,9 @@
 package com.lamb.kendra.meal.planner.mealplanner;
 
-import com.lamb.kendra.meal.planner.mealplanner.repositories.Meal;
-import com.lamb.kendra.meal.planner.mealplanner.repositories.Recipe;
-import com.lamb.kendra.meal.planner.mealplanner.services.MealService;
-import com.lamb.kendra.meal.planner.mealplanner.services.RecipeService;
+import com.lamb.kendra.meal.planner.mealplanner.backend.repositories.Meal;
+import com.lamb.kendra.meal.planner.mealplanner.backend.repositories.Recipe;
+import com.lamb.kendra.meal.planner.mealplanner.backend.services.MealService;
+import com.lamb.kendra.meal.planner.mealplanner.backend.services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
