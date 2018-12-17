@@ -1,11 +1,13 @@
 package com.lamb.kendra.meal.planner.mealplanner.repositories;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Recipe {
 
     @Id
@@ -15,6 +17,10 @@ public class Recipe {
     private String name;
     private String link;
     private String notes;
+
+    @ManyToMany(mappedBy = "recipes")
+    @JsonIgnore
+    private Set<Meal> meals;
 
     public Recipe() {
 
@@ -59,6 +65,15 @@ public class Recipe {
 
     public Recipe setNotes(String notes) {
         this.notes = notes;
+        return this;
+    }
+
+    public Set<Meal> getMeals() {
+        return meals;
+    }
+
+    public Recipe setMeals(Set<Meal> meals) {
+        this.meals = meals;
         return this;
     }
 }
