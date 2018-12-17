@@ -5,6 +5,8 @@ import com.lamb.kendra.meal.planner.mealplanner.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RecipeService {
 
@@ -17,5 +19,9 @@ public class RecipeService {
 
     public void save(Recipe recipe) {
         recipeRepository.save(recipe);
+    }
+
+    public List<Recipe> findAllFavorites() {
+        return recipeRepository.findAllByIsFavoriteIsTrue();
     }
 }

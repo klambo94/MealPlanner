@@ -32,6 +32,7 @@ public class MealPlannerApplication {
             Recipe recipe1 = new Recipe("20 Minute Skillet Fajitas", "https://www.theironyou.com/2015/10/20-minute-skillet-chicken-fajitas.html?m=1", "Can be used with steak or chicken");
             Recipe recipe2 = new Recipe("Hawaiian Porkchops", null, "See Cook It Quick page 235");
             Recipe recipe3 = new Recipe("Sizzling Asparagus", null, "See Cook It Quick page 240");
+            recipe1.setFavorite(true);
             recipeService.save(recipe1);
             recipeService.save(recipe2);
             recipeService.save(recipe3);
@@ -45,6 +46,8 @@ public class MealPlannerApplication {
 
             Meal meal1 = new Meal("Hawaiian Porkchops and Asparagus", null, recipesForMeal1);
             Meal meal2 = new Meal("Fajitas", "Test Note", recipesForMeal2);
+
+            meal1.setFavorite(true);
 
             mealService.save(meal1);
             mealService.save(meal2);

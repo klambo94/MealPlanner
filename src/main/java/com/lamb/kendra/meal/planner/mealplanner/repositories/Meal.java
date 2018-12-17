@@ -14,6 +14,7 @@ public class Meal {
 
     private String name;
     private String notes;
+    private boolean isFavorite;
 
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "meal_recipe",
@@ -29,6 +30,7 @@ public class Meal {
         this.name = name;
         this.notes = notes;
         this.recipes = recipes;
+        this.isFavorite = false;
     }
 
     public Long getId() {
@@ -64,6 +66,15 @@ public class Meal {
 
     public Meal setRecipes(Set<Recipe> recipes) {
         this.recipes = recipes;
+        return this;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public Meal setFavorite(boolean favorite) {
+        isFavorite = favorite;
         return this;
     }
 }
