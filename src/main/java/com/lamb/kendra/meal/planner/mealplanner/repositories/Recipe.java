@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,6 +18,7 @@ public class Recipe {
     private String name;
     private String link;
     private String notes;
+    private boolean isFavorite;
 
     @ManyToMany(mappedBy = "recipes")
     @JsonIgnore
@@ -30,6 +32,7 @@ public class Recipe {
         this.name = name;
         this.link = link;
         this.notes = notes;
+        this.isFavorite = false;
     }
 
     public Long getId() {
@@ -74,6 +77,15 @@ public class Recipe {
 
     public Recipe setMeals(Set<Meal> meals) {
         this.meals = meals;
+        return this;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public Recipe setFavorite(boolean favorite) {
+        isFavorite = favorite;
         return this;
     }
 }
