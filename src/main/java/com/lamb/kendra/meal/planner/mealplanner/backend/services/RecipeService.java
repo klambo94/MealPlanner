@@ -1,7 +1,7 @@
-package com.lamb.kendra.meal.planner.mealplanner.services;
+package com.lamb.kendra.meal.planner.mealplanner.backend.services;
 
-import com.lamb.kendra.meal.planner.mealplanner.repositories.Recipe;
-import com.lamb.kendra.meal.planner.mealplanner.repositories.RecipeRepository;
+import com.lamb.kendra.meal.planner.mealplanner.backend.repositories.Recipe;
+import com.lamb.kendra.meal.planner.mealplanner.backend.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
