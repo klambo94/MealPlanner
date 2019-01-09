@@ -27,8 +27,20 @@ class Recipes extends Component {
     }
 
     render() {
+
+        const tableRows = this.state.recipes.map((recipe, index) =>
+            <tr key={index}>
+                <td>{recipe.name}</td>
+                <td>{recipe.link}</td>
+                <td>{recipe.notes}</td>
+                <td>{recipe.isFavorite}</td>
+            </tr>
+        );
         return(
             <div className="App">
+                <table>
+                    <tbody>{tableRows}</tbody>
+                </table>
             </div>
         );
     }
