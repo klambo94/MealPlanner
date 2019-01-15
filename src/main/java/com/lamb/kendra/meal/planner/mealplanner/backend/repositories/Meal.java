@@ -18,18 +18,18 @@ public class Meal {
 
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "meal_recipe",
-                joinColumns = {@JoinColumn(name= "mealId", referencedColumnName = "id")},
-                inverseJoinColumns = {@JoinColumn(name = "recipeId", referencedColumnName = "id")})
-    private Set<Recipe> recipes = new HashSet<>();
+            joinColumns = {@JoinColumn(name= "mealId", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "recipeId", referencedColumnName = "id")})
+    private Set<Recipe> mealRecipes = new HashSet<>();
 
     public Meal() {
 
     }
 
-    public Meal(String name, String notes, Set<Recipe> recipes) {
+    public Meal(String name, String notes, Set<Recipe> mealRecipes) {
         this.name = name;
         this.notes = notes;
-        this.recipes = recipes;
+        this.mealRecipes = mealRecipes;
         this.isFavorite = false;
     }
 
@@ -60,12 +60,12 @@ public class Meal {
         return this;
     }
 
-    public Set<Recipe> getRecipes() {
-        return recipes;
+    public Set<Recipe> getMealRecipes() {
+        return mealRecipes;
     }
 
-    public Meal setRecipes(Set<Recipe> recipes) {
-        this.recipes = recipes;
+    public Meal setMealRecipes(Set<Recipe> mealRecipes) {
+        this.mealRecipes = mealRecipes;
         return this;
     }
 

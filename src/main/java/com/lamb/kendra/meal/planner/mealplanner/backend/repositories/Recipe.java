@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,19 +20,26 @@ public class Recipe {
     private String notes;
     private boolean isFavorite;
 
-    @ManyToMany(mappedBy = "recipes")
+    @ManyToMany(mappedBy = "mealRecipes")
     @JsonIgnore
     private Set<Meal> meals;
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "recipe_ingredient",
+            joinColumns = {@JoinColumn(name= "recipe_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "ingredientId", referencedColumnName = "id")})
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     public Recipe() {
 
     }
 
-    public Recipe(String name, String link, String notes) {
+    public Recipe(String name, String link, String notes, Set<Ingredient> ingredients) {
         this.name = name;
         this.link = link;
         this.notes = notes;
         this.isFavorite = false;
+        this.ingredients = ingredients;
     }
 
     public Long getId() {
@@ -85,6 +93,15 @@ public class Recipe {
 
     public Recipe setFavorite(boolean favorite) {
         isFavorite = favorite;
+        return this;
+    }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public Recipe setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
         return this;
     }
 }
